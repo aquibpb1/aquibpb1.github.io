@@ -9383,6 +9383,7 @@ var Calendar = /** @class */ (function () {
                 this.currentDate = this.moment(dateOrRange).stripZone(); // just like gotoDate
             }
         }
+        console.log('----change view-----');
         this.renderView(viewName);
     };
     // Forces navigation to a view for the given date.
@@ -9595,11 +9596,14 @@ var Calendar = /** @class */ (function () {
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
                 this.bindViewHandlers(newView);
                 newView.startBatchRender(); // so that setElement+setDate rendering are joined
-                newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo('<h2>New Content List </h2>'));
+                newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
+                //newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo('<h2>New Content List </h2>'));
 
-                console.log('--if---fc-' + viewType + '-view');
+                console.log('--old-new---' + viewType + '-view');
+                console.log(oldView);
+                console.log(newView);
                 console.log(this.contentEl);
-                //this.toolbarsManager.proxyCall('activateButton', viewType);
+                this.toolbarsManager.proxyCall('activateButton', viewType);
             }
             else{
                 newView = this.view =
@@ -9644,6 +9648,7 @@ var Calendar = /** @class */ (function () {
         this.freezeContentHeight();
         this.clearView();
         this.calcSize();
+        console.log('---reinitview---');
         this.renderView(oldView.type); // needs the type to freshly render
         this.view.applyScroll(scroll);
         this.thawContentHeight();
