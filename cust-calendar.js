@@ -9658,6 +9658,9 @@ var Calendar = /** @class */ (function () {
             if(viewType == 'list'){
             }
             else{
+                console.log('current view : ' );
+                console.log(viewType);
+                this.clearView();
                 newView = this.view =
                 this.viewsByType[viewType] ||
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
