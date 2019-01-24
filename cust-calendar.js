@@ -9596,8 +9596,8 @@ var Calendar = /** @class */ (function () {
         if (!this.view && viewType) {
             if(viewType == 'list'){
                 console.log($('.fc-view-container').length + ' : listcontainer');
-                console.log($('.fc-list-view').length + ' : listexist');
-                console.log($('.fc-list-view').find('.fc-scroller').length + ' : list scroller');
+                console.log($('.fc-view-container').find('.fc-list-view').length + ' : listexist');
+                console.log($('.fc-view-container').find('.fc-scroller').length + ' : list scroller');
                 console.log('-------------BEFORE------------------');
                 newView = this.view =
                 this.viewsByType[viewType] ||
@@ -9605,8 +9605,8 @@ var Calendar = /** @class */ (function () {
                 this.bindViewHandlers(newView);
                 newView.startBatchRender(); // so that setElement+setDate rendering are joined
                 console.log($('.fc-view-container').length + ' : listcontainer');
-                console.log($('.fc-list-view').length + ' : listexist');
-                console.log($('.fc-list-view').find('.fc-scroller').length + ' : list scroller');
+                console.log($('.fc-view-container').find('.fc-list-view').length + ' : listexist');
+                console.log($('.fc-view-container').find('.fc-scroller').length + ' : list scroller');
                 newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                 //newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo('<h2>New Content List </h2>'));
 
