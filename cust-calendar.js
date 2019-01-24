@@ -9635,8 +9635,9 @@ var Calendar = /** @class */ (function () {
                     newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                 }
                 else{
-                    console.log('---first + NEW-----');
-                    newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
+                    console.log('---first + NEW tabel-----');
+                    //newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
+                    $('.fc-view-container').append(this.contentEl)
                     //$('.fc-view-container').find('.fc-list-view tbody').append('<h2>None test</h2>')
                 }
                 
