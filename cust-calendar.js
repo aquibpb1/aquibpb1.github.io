@@ -9660,10 +9660,8 @@ var Calendar = /** @class */ (function () {
             else{
                 console.log('current view : ' );
                 console.log(viewType);
-                this.clearView();
-                newView = this.view =
-                this.viewsByType[viewType] ||
-                    (this.viewsByType[viewType] = this.instantiateView(viewType));
+                //this.clearView();
+                newView = this.view = this.viewsByType[viewType] || (this.viewsByType[viewType] =  this.instantiateView(viewType));
                 this.bindViewHandlers(newView);
                 newView.startBatchRender(); // so that setElement+setDate rendering are joined
                 newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
