@@ -9631,12 +9631,14 @@ var Calendar = /** @class */ (function () {
             console.log(this);
             console.log(this.contentEl);
 
-            newView = this.view =
+             // so that setElement+setDate rendering are joined
+                if(!($('.fc-view-container').find('.fc-list-view tr').length > 0)){
+                    console.log('---first-----');
+                    newView = this.view =
                 this.viewsByType[viewType] ||
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
                 this.bindViewHandlers(newView);
-                newView.startBatchRender(); // so that setElement+setDate rendering are joined
-                if(!($('.fc-view-container').find('.fc-list-view tr').length > 0)){
+                newView.startBatchRender();
                     newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                 }
                 else{
