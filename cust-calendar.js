@@ -9655,11 +9655,11 @@ var Calendar = /** @class */ (function () {
     // TODO: maintain any other user-manipulated state.
     Calendar.prototype.reinitView = function () {
         var oldView = this.view;
-        console.log('---reinitview old--- ' + (oldView.name == 'name'));
+        console.log('---reinitview old--- ' + (oldView.name == 'list'));
         console.log(oldView);
         var scroll = oldView.queryScroll(); // wouldn't be so complicated if Calendar owned the scroll
         this.freezeContentHeight();
-        if(!(oldView.name == 'name')){
+        if(!(oldView.name == 'list')){
             this.clearView();
         }
         this.calcSize();
