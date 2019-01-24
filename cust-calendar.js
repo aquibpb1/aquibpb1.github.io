@@ -10409,6 +10409,8 @@ var DateProfileGenerator = /** @class */ (function () {
             unit = util_1.computeGreatestUnit(duration);
             unzonedRange = this.buildRangeFromDuration(date, direction, duration, unit);
         }
+        console.log('ciew spec');
+        console.log(viewSpec);
         return { duration: duration, unit: unit, unzonedRange: unzonedRange };
     };
     DateProfileGenerator.prototype.getFallbackDuration = function () {
