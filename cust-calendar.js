@@ -9627,7 +9627,7 @@ var Calendar = /** @class */ (function () {
             // newView = this.view =
             //     this.viewsByType[viewType] ||
             //         (this.viewsByType[viewType] = this.instantiateView(viewType));
-            console.log('---new view start batch----');
+            console.log($('.fc-view-container').find('.fc-list-view tr').length + ' ---new view start batch----');
             console.log(this);
             console.log(this.contentEl);
 
@@ -9636,7 +9636,7 @@ var Calendar = /** @class */ (function () {
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
                 this.bindViewHandlers(newView);
                 newView.startBatchRender(); // so that setElement+setDate rendering are joined
-                if(!($('.fc-view-container').find('.fc-scroller').length > 0)){
+                if(!($('.fc-view-container').find('.fc-list-view tr').length > 0)){
                     newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                 }
                 else{
