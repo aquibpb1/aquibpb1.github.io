@@ -9383,7 +9383,6 @@ var Calendar = /** @class */ (function () {
                 this.currentDate = this.moment(dateOrRange).stripZone(); // just like gotoDate
             }
         }
-        console.log('----change view-----');
         this.renderView(
             
             viewName);
@@ -9615,29 +9614,19 @@ var Calendar = /** @class */ (function () {
 
         
         if (oldView && viewType && oldView.type !== viewType) {
-            console.log('inside clear');
-            console.log(oldView.type + ' :old ------- new: ' + viewType)
-            console.log('---------------------');
             if((viewType !== 'list') || (oldView.type !== 'list')){
                 console.log('clear- it');
                 this.clearView();
             }
         }
         if(viewType == 'list'){
-            console.log($('.fc-view-container').length + ' : listcontainer test');
-            console.log($('.fc-view-container').find('.fc-list-view').length + ' : listexist test');
-            console.log($('.fc-view-container').find('.fc-scroller').length + ' : list scroller test');
-            console.log('-------------BEFORE Outside content------------------');
-            // newView = this.view =
-            //     this.viewsByType[viewType] ||
-            //         (this.viewsByType[viewType] = this.instantiateView(viewType));
-            console.log($('.fc-view-container').find('.fc-list-view tr').length + ' ---new view start batch----');
+            
+            console.log('------------new list');
             console.log(this);
             console.log(this.contentEl);
 
              // so that setElement+setDate rendering are joined
                 if(!($('.fc-view-container').find('.fc-list-view tr').length > 0)){
-                    console.log('---first-----');
                     newView = this.view =
                 this.viewsByType[viewType] ||
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
@@ -9651,9 +9640,6 @@ var Calendar = /** @class */ (function () {
                     $('.fc-view-container').find('.fc-list-view tbody').append('<h2>None test</h2>')
                 }
                 
-                
-
-                console.log('-else---view change---fc-' + viewType + '-view');
                 this.toolbarsManager.proxyCall('activateButton', viewType);
         }
         
@@ -9663,14 +9649,10 @@ var Calendar = /** @class */ (function () {
 
             }
             else{
-                console.log('current view : ' );
-                console.log(viewType);
-                //this.clearView();
                 newView = this.view = this.viewsByType[viewType] || (this.viewsByType[viewType] =  this.instantiateView(viewType));
                 this.bindViewHandlers(newView);
                 newView.startBatchRender(); // so that setElement+setDate rendering are joined
                 newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
-                console.log('-else---view change---fc-' + viewType + '-view');
                 this.toolbarsManager.proxyCall('activateButton', viewType);
             }
             
@@ -9702,8 +9684,6 @@ var Calendar = /** @class */ (function () {
     // TODO: maintain any other user-manipulated state.
     Calendar.prototype.reinitView = function () {
         var oldView = this.view;
-        console.log('---reinitview old--- ' + (oldView.name == 'list'));
-        console.log(oldView);
         var scroll = oldView.queryScroll(); // wouldn't be so complicated if Calendar owned the scroll
         this.freezeContentHeight();
         if(!(oldView.name == 'list')){
