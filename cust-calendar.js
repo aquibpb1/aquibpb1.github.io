@@ -14757,6 +14757,9 @@ var ListEventRenderer = /** @class */ (function (_super) {
         }
 
         console.log('current list view : ' + view);
+        console.log(view);
+        console.log(calendar);
+        console.log(theme);
         return '<tr class="' + classes.join(' ') + '">' +
             (this.displayEventTime ?
                 '<td class="fc-list-item-time ' + theme.getClass('widgetContent') + '">' +
