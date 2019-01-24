@@ -9586,19 +9586,25 @@ var Calendar = /** @class */ (function () {
         var newView;
         this.freezeContentHeight();
         if (oldView && viewType && oldView.type !== viewType) {
+            console.log('inside clear');
             if(!(viewType == 'list')){
+                console.log('clear- it');
                 this.clearView();
             }
         }
         // if viewType changed, or the view was never created, create a fresh view
         if (!this.view && viewType) {
             if(viewType == 'list'){
+                console.log($('.fc-view-container').length + ' : listcontainer');
+                console.log($('.fc-list-view').length + ' : listexist');
+                console.log($('.fc-list-view').find('.fc-scroller').length + ' : list scroller');
+                console.log('-------------BEFORE------------------');
                 newView = this.view =
                 this.viewsByType[viewType] ||
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
                 this.bindViewHandlers(newView);
                 newView.startBatchRender(); // so that setElement+setDate rendering are joined
-
+                console.log($('.fc-view-container').length + ' : listcontainer');
                 console.log($('.fc-list-view').length + ' : listexist');
                 console.log($('.fc-list-view').find('.fc-scroller').length + ' : list scroller');
                 newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
