@@ -9627,31 +9627,23 @@ var Calendar = /** @class */ (function () {
             // newView = this.view =
             //     this.viewsByType[viewType] ||
             //         (this.viewsByType[viewType] = this.instantiateView(viewType));
-            console.log('---new view----');
+            console.log('---new view start batch----');
             console.log(this);
             console.log(this.contentEl);
+
+            newView = this.view =
+                this.viewsByType[viewType] ||
+                    (this.viewsByType[viewType] = this.instantiateView(viewType));
+                this.bindViewHandlers(newView);
+                newView.startBatchRender(); // so that setElement+setDate rendering are joined
+                newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
+                console.log('-else---view change---fc-' + viewType + '-view');
+                this.toolbarsManager.proxyCall('activateButton', viewType);
         }
         
         // if viewType changed, or the view was never created, create a fresh view
         if (!this.view && viewType) {
             if(viewType == 'list'){
-                
-                newView = this.view =
-                this.viewsByType[viewType] ||
-                    (this.viewsByType[viewType] = this.instantiateView(viewType));
-                this.bindViewHandlers(newView);
-                newView.startBatchRender(); // so that setElement+setDate rendering are joined
-                console.log($('.fc-view-container').length + ' : listcontainer');
-                console.log($('.fc-view-container').find('.fc-list-view').length + ' : listexist');
-                console.log($('.fc-view-container').find('.fc-scroller').length + ' : list scroller');
-                newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
-                //newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo('<h2>New Content List </h2>'));
-
-                console.log('--old-new---' + viewType + '-view');
-                console.log(oldView);
-                console.log(newView);
-                console.log(this.contentEl);
-                this.toolbarsManager.proxyCall('activateButton', viewType);
             }
             else{
                 newView = this.view =
