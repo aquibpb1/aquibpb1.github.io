@@ -9624,9 +9624,9 @@ var Calendar = /** @class */ (function () {
             console.log($('.fc-view-container').find('.fc-list-view').length + ' : listexist test');
             console.log($('.fc-view-container').find('.fc-scroller').length + ' : list scroller test');
             console.log('-------------BEFORE Outside content------------------');
-            newView = this.view =
-                this.viewsByType[viewType] ||
-                    (this.viewsByType[viewType] = this.instantiateView(viewType));
+            // newView = this.view =
+            //     this.viewsByType[viewType] ||
+            //         (this.viewsByType[viewType] = this.instantiateView(viewType));
             console.log('---new view----');
             console.log(this);
             console.log(this.contentEl);
