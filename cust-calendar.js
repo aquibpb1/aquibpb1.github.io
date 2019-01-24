@@ -9636,8 +9636,8 @@ var Calendar = /** @class */ (function () {
                 }
                 else{
                     console.log('---first + NEW-----');
-                    //newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
-                    $('.fc-view-container').find('.fc-list-view tbody').append('<h2>None test</h2>')
+                    newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
+                    //$('.fc-view-container').find('.fc-list-view tbody').append('<h2>None test</h2>')
                 }
                 
                 this.toolbarsManager.proxyCall('activateButton', viewType);
