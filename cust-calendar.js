@@ -9613,12 +9613,12 @@ var Calendar = /** @class */ (function () {
         var newView;
         this.freezeContentHeight();
 
-        console.log(oldView.type + ' :old ------- new: ' + viewType)
-        console.log('---------------------');
+        
         if (oldView && viewType && oldView.type !== viewType) {
             console.log('inside clear');
-            
-            if(!(viewType == 'list') && !(oldView.type == 'list')){
+            console.log(oldView.type + ' :old ------- new: ' + viewType)
+            console.log('---------------------');
+            if(!(viewType == 'list') && (oldView.type !== viewType)){
                 console.log('clear- it');
                 this.clearView();
             }
