@@ -9384,7 +9384,9 @@ var Calendar = /** @class */ (function () {
             }
         }
         console.log('----change view-----');
-        this.renderView(viewName);
+        this.renderView(
+            
+            viewName);
     };
     // Forces navigation to a view for the given date.
     // `viewType` can be a specific view name or a generic one like "week" or "day".
@@ -9394,7 +9396,9 @@ var Calendar = /** @class */ (function () {
         spec = this.viewSpecManager.getViewSpec(viewType) ||
             this.viewSpecManager.getUnitViewSpec(viewType);
         this.currentDate = newDate.clone();
-        this.renderView(spec ? spec.type : null);
+        this.renderView(
+            
+            spec ? spec.type : null);
     };
     // Current Date
     // -----------------------------------------------------------------------------------------------------------------
@@ -9413,7 +9417,10 @@ var Calendar = /** @class */ (function () {
         var prevInfo = view.dateProfileGenerator.buildPrev(view.get('dateProfile'));
         if (prevInfo.isValid) {
             this.currentDate = prevInfo.date;
-            this.renderView();
+            this.renderView(
+
+
+            );
         }
     };
     Calendar.prototype.next = function () {
@@ -9421,28 +9428,46 @@ var Calendar = /** @class */ (function () {
         var nextInfo = view.dateProfileGenerator.buildNext(view.get('dateProfile'));
         if (nextInfo.isValid) {
             this.currentDate = nextInfo.date;
-            this.renderView();
+            this.renderView(
+
+
+            );
         }
     };
     Calendar.prototype.prevYear = function () {
         this.currentDate.add(-1, 'years');
-        this.renderView();
+        this.renderView(
+
+
+        );
     };
     Calendar.prototype.nextYear = function () {
         this.currentDate.add(1, 'years');
-        this.renderView();
+        this.renderView(
+
+
+        );
     };
     Calendar.prototype.today = function () {
         this.currentDate = this.getNow(); // should deny like prev/next?
-        this.renderView();
+        this.renderView(
+
+
+        );
     };
     Calendar.prototype.gotoDate = function (zonedDateInput) {
         this.currentDate = this.moment(zonedDateInput).stripZone();
-        this.renderView();
+        this.renderView(
+
+
+        );
     };
     Calendar.prototype.incrementDate = function (delta) {
         this.currentDate.add(moment.duration(delta));
-        this.renderView();
+        this.renderView(
+
+
+        );
     };
     // for external API
     Calendar.prototype.getDate = function () {
@@ -9530,7 +9555,9 @@ var Calendar = /** @class */ (function () {
         this.initToolbars();
         this.renderHeader();
         this.renderFooter();
-        this.renderView(this.opt('defaultView'));
+        this.renderView(
+            
+            this.opt('defaultView'));
         if (this.opt('handleWindowResize')) {
             $(window).resize(this.windowResizeProxy = util_1.debounce(// prevents rapid calls
             this.windowResize.bind(this), this.opt('windowResizeDelay')));
@@ -9592,13 +9619,15 @@ var Calendar = /** @class */ (function () {
                 this.clearView();
             }
         }
+
+        console.log($('.fc-view-container').length + ' : listcontainer');
+        console.log($('.fc-view-container').find('.fc-list-view').length + ' : listexist');
+        console.log($('.fc-view-container').find('.fc-scroller').length + ' : list scroller');
+        console.log('-------------BEFORE Outside------------------');
         // if viewType changed, or the view was never created, create a fresh view
         if (!this.view && viewType) {
             if(viewType == 'list'){
-                console.log($('.fc-view-container').length + ' : listcontainer');
-                console.log($('.fc-view-container').find('.fc-list-view').length + ' : listexist');
-                console.log($('.fc-view-container').find('.fc-scroller').length + ' : list scroller');
-                console.log('-------------BEFORE------------------');
+                
                 newView = this.view =
                 this.viewsByType[viewType] ||
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
@@ -9664,7 +9693,9 @@ var Calendar = /** @class */ (function () {
         }
         this.calcSize();
         
-        this.renderView(oldView.type); // needs the type to freshly render
+        this.renderView(
+            
+            oldView.type); // needs the type to freshly render
         this.view.applyScroll(scroll);
         this.thawContentHeight();
     };
