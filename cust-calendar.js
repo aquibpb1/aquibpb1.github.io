@@ -9636,11 +9636,11 @@ var Calendar = /** @class */ (function () {
                 }
                 else{
                    console.log('---first + NEW TABLE-----');
-                //     newView = this.view =
-                // this.viewsByType[viewType] ||
-                //     (this.viewsByType[viewType] = this.instantiateView(viewType));
-                // this.bindViewHandlers(newView);
-                // newView.startBatchRender();
+                    newView = this.view =
+                this.viewsByType[viewType] ||
+                    (this.viewsByType[viewType] = this.instantiateView(viewType));
+                this.bindViewHandlers(newView);
+                newView.startBatchRender();
                 //     newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                     //newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                     //$('.fc-view-container').append(this.contentEl)
