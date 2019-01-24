@@ -9614,7 +9614,7 @@ var Calendar = /** @class */ (function () {
         this.freezeContentHeight();
         if (oldView && viewType && oldView.type !== viewType) {
             console.log('inside clear');
-            if(!(viewType == 'list')){
+            if(!(viewType == 'list') && !(oldView.type == 'list')){
                 console.log('clear- it');
                 this.clearView();
             }
@@ -9656,6 +9656,7 @@ var Calendar = /** @class */ (function () {
         // if viewType changed, or the view was never created, create a fresh view
         if (!this.view && viewType) {
             if(viewType == 'list'){
+
             }
             else{
                 console.log('current view : ' );
