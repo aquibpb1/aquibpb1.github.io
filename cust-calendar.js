@@ -9644,7 +9644,7 @@ var Calendar = /** @class */ (function () {
                 else{
                     console.log('---first + NEW-----');
                     //newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
-                    $('.fc-view-container').find('.fc-list-view tr:last-child').after('<h2>None test</h2>')
+                    $('.fc-view-container').find('.fc-list-view tbody').append('<h2>None test</h2>')
                 }
                 
                 
