@@ -4246,6 +4246,10 @@ var EventRenderer = /** @class */ (function () {
         var eventRanges;
         var bgRanges = [];
         var fgRanges = [];
+        console.log('render======================')
+        console.log(eventsPayload)
+        console.log(dateProfile)
+        console.log('---------------------------------')
         for (eventDefId in eventsPayload) {
             instanceGroup = eventsPayload[eventDefId];
             eventRanges = instanceGroup.sliceRenderRanges(dateProfile.activeUnzonedRange);
