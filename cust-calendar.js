@@ -14756,11 +14756,10 @@ var ListEventRenderer = /** @class */ (function (_super) {
             classes.push('fc-has-url');
         }
 
-        console.log('current list view : ' + view);
-        console.log(view);
-        console.log(calendar);
-        console.log(theme);
-        return '<tr class="' + classes.join(' ') + '">' +
+        console.log('current list view : ' + view.type);
+        console.log(eventDef);
+        if(view.type == 'list'){
+            return '<tr class="' + classes.join(' ') + '">' +
             (this.displayEventTime ?
                 '<td class="fc-list-item-time ' + theme.getClass('widgetContent') + '">' +
                     (timeHtml || '') +
@@ -14779,6 +14778,29 @@ var ListEventRenderer = /** @class */ (function (_super) {
             '</a>' +
             '</td>' +
             '</tr>';
+        }
+        else{
+            return '<tr class="' + classes.join(' ') + '">' +
+                (this.displayEventTime ?
+                    '<td class="fc-list-item-time ' + theme.getClass('widgetContent') + '">' +
+                        (timeHtml || '') +
+                        '</td>' :
+                    '') +
+                '<td class="fc-list-item-marker ' + theme.getClass('widgetContent') + '">' +
+                '<span class="fc-event-dot"' +
+                (bgColor ?
+                    ' style="background-color:' + bgColor + '"' :
+                    '') +
+                '></span>' +
+                '</td>' +
+                '<td class="fc-list-item-title ' + theme.getClass('widgetContent') + '">' +
+                '<a' + (url ? ' href="' + util_1.htmlEscape(url) + '"' : '') + '>' +
+                util_1.htmlEscape(eventDef.title || '') +
+                '</a>' +
+                '</td>' +
+                '</tr>';
+        }
+        
     };
     // like "4:00am"
     ListEventRenderer.prototype.computeEventTimeFormat = function () {
