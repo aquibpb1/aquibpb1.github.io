@@ -9595,11 +9595,11 @@ var Calendar = /** @class */ (function () {
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
                 this.bindViewHandlers(newView);
                 newView.startBatchRender(); // so that setElement+setDate rendering are joined
-                newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
+                newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo('<h2>New Content List </h2>'));
 
                 console.log('--if---fc-' + viewType + '-view');
                 console.log(this.contentEl);
-                // this.toolbarsManager.proxyCall('activateButton', viewType);
+                //this.toolbarsManager.proxyCall('activateButton', viewType);
             }
             else{
                 newView = this.view =
@@ -9607,9 +9607,9 @@ var Calendar = /** @class */ (function () {
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
                 this.bindViewHandlers(newView);
                 newView.startBatchRender(); // so that setElement+setDate rendering are joined
-                newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo('<h2>New Content List </h2>'));
+                newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                 console.log('-else---view change---fc-' + viewType + '-view');
-                //this.toolbarsManager.proxyCall('activateButton', viewType);
+                this.toolbarsManager.proxyCall('activateButton', viewType);
             }
             
         }
