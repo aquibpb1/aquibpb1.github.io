@@ -9640,8 +9640,8 @@ var Calendar = /** @class */ (function () {
                 this.viewsByType[viewType] ||
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
                 this.bindViewHandlers(newView);
-                //newView.startBatchRender();
-                //     newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
+                newView.startBatchRender();
+                    newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                     //newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                     //$('.fc-view-container').append(this.contentEl)
                     //$('.fc-view-container').find('.fc-list-view tbody').append('<h2>None test</h2>')
