@@ -9636,7 +9636,7 @@ var Calendar = /** @class */ (function () {
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
                 this.bindViewHandlers(newView);
                 newView.startBatchRender(); // so that setElement+setDate rendering are joined
-                if($('.fc-view-container').find('.fc-scroller').length){
+                if(!($('.fc-view-container').find('.fc-scroller').length > 0)){
                     newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                 }
                 else{
