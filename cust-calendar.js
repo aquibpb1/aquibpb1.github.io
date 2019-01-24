@@ -9619,11 +9619,14 @@ var Calendar = /** @class */ (function () {
                 this.clearView();
             }
         }
-
-        console.log($('.fc-view-container').length + ' : listcontainer');
-        console.log($('.fc-view-container').find('.fc-list-view').length + ' : listexist');
-        console.log($('.fc-view-container').find('.fc-scroller').length + ' : list scroller');
-        console.log('-------------BEFORE Outside------------------');
+        if(viewType == 'list'){
+            console.log($('.fc-view-container').length + ' : listcontainer test');
+            console.log($('.fc-view-container').find('.fc-list-view').length + ' : listexist test');
+            console.log($('.fc-view-container').find('.fc-scroller').length + ' : list scroller test');
+            console.log('-------------BEFORE Outside content------------------');
+            console.log(this.contentEl);
+        }
+        
         // if viewType changed, or the view was never created, create a fresh view
         if (!this.view && viewType) {
             if(viewType == 'list'){
