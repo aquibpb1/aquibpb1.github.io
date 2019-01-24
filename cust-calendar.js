@@ -14755,6 +14755,8 @@ var ListEventRenderer = /** @class */ (function (_super) {
         if (url) {
             classes.push('fc-has-url');
         }
+
+        console.log('current list view : ' + view);
         return '<tr class="' + classes.join(' ') + '">' +
             (this.displayEventTime ?
                 '<td class="fc-list-item-time ' + theme.getClass('widgetContent') + '">' +
