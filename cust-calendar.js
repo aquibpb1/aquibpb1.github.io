@@ -8698,6 +8698,8 @@ var util_2 = __webpack_require__(34);
 var DateComponent = /** @class */ (function (_super) {
     tslib_1.__extends(DateComponent, _super);
     function DateComponent(_view, _options) {
+        console.log('--date-component--');
+        console.log(_options);
         var _this = _super.call(this) || this;
         _this.isRTL = false; // frequently accessed options
         _this.hitsNeededDepth = 0; // necessary because multiple callers might need the same hits
