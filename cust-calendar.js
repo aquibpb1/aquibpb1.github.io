@@ -9589,17 +9589,29 @@ var Calendar = /** @class */ (function () {
         }
         // if viewType changed, or the view was never created, create a fresh view
         if (!this.view && viewType) {
-            newView = this.view =
+            if(viewType == 'list'){
+                newView = this.view =
                 this.viewsByType[viewType] ||
                     (this.viewsByType[viewType] = this.instantiateView(viewType));
-            this.bindViewHandlers(newView);
-            newView.startBatchRender(); // so that setElement+setDate rendering are joined
-            newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
+                this.bindViewHandlers(newView);
+                newView.startBatchRender(); // so that setElement+setDate rendering are joined
+                newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
 
-            console.log('----view change----');
-            console.log('fc-' + viewType + '-view');
-            console.log(this.contentEl);
-            this.toolbarsManager.proxyCall('activateButton', viewType);
+                console.log('--if---fc-' + viewType + '-view');
+                console.log(this.contentEl);
+                this.toolbarsManager.proxyCall('activateButton', viewType);
+            }
+            else{
+                newView = this.view =
+                this.viewsByType[viewType] ||
+                    (this.viewsByType[viewType] = this.instantiateView(viewType));
+                this.bindViewHandlers(newView);
+                newView.startBatchRender(); // so that setElement+setDate rendering are joined
+                newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
+                console.log('-else---view change---fc-' + viewType + '-view');
+                this.toolbarsManager.proxyCall('activateButton', viewType);
+            }
+            
         }
         if (this.view) {
             // prevent unnecessary change firing
