@@ -4266,6 +4266,9 @@ var EventRenderer = /** @class */ (function () {
     EventRenderer.prototype.renderFgRanges = function (eventRanges) {
         var eventFootprints = this.component.eventRangesToEventFootprints(eventRanges);
         var segs = this.component.eventFootprintsToSegs(eventFootprints);
+        console.log('renderFgRanges');
+        console.log(eventFootprints);
+        console.log(segs)
         // render an `.el` on each seg
         // returns a subset of the segs. segs that were actually rendered
         segs = this.renderFgSegEls(segs);
