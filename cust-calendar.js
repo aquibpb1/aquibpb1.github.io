@@ -9624,6 +9624,11 @@ var Calendar = /** @class */ (function () {
             console.log($('.fc-view-container').find('.fc-list-view').length + ' : listexist test');
             console.log($('.fc-view-container').find('.fc-scroller').length + ' : list scroller test');
             console.log('-------------BEFORE Outside content------------------');
+            newView = this.view =
+                this.viewsByType[viewType] ||
+                    (this.viewsByType[viewType] = this.instantiateView(viewType));
+            console.log('---new view----');
+            console.log(this);
             console.log(this.contentEl);
         }
         
@@ -9696,9 +9701,7 @@ var Calendar = /** @class */ (function () {
         }
         this.calcSize();
         
-        this.renderView(
-            
-            oldView.type); // needs the type to freshly render
+        this.renderView(oldView.type); // needs the type to freshly render
         this.view.applyScroll(scroll);
         this.thawContentHeight();
     };
