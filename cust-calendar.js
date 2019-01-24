@@ -14757,6 +14757,7 @@ var ListEventRenderer = /** @class */ (function (_super) {
         }
 
         console.log('current list view : ' + view.type);
+        console.log(seg);
         console.log(eventDef);
         if(view.type == 'list'){
             return '<tr class="' + classes.join(' ') + '">' +
