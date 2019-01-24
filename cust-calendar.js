@@ -9597,7 +9597,7 @@ var Calendar = /** @class */ (function () {
             newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
 
             console.log('----view change----');
-            console.log(fc-" + viewType + "-view);
+            console.log('fc-' + viewType + '-view');
             console.log(this.contentEl);
             this.toolbarsManager.proxyCall('activateButton', viewType);
         }
