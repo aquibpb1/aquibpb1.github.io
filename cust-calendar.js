@@ -9597,8 +9597,8 @@ var Calendar = /** @class */ (function () {
                 this.bindViewHandlers(newView);
                 newView.startBatchRender(); // so that setElement+setDate rendering are joined
 
-                console.log($('fc-list-view').length + ' : listexist');
-                console.log($('fc-list-view').find('.fc-scroller').length + ' : list scroller');
+                console.log($('.fc-list-view').length + ' : listexist');
+                console.log($('.fc-list-view').find('.fc-scroller').length + ' : list scroller');
                 newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo(this.contentEl));
                 //newView.setElement($("<div class='fc-view fc-" + viewType + "-view' />").appendTo('<h2>New Content List </h2>'));
 
